@@ -1,0 +1,36 @@
+hospital_data = {
+    "patient_1": {
+        "name": "Peter George",
+        "age": 40,
+        "doctor_name": "Dr. John",
+        "current_diagnosis": "Angina",
+        "medical_condition": ["Hypertension", "High Cholesterol"],
+        "medications": {
+            "Metoprolol": {"dose": "25mg", "frequency": "twice daily"},
+            "Atorvastatin": {"dose": "10mg", "frequency": "once daily"}
+        }
+    },
+"patient_2": {
+        "name": "Jenny Joseph",
+        "age": 35,
+        "doctor_name": "Dr. Devin",
+        "current_diagnosis": "Diabetes",
+        "medical_condition": ["Hypertension", "Osteoarthritis"],
+        "medications": {
+            "Metformin": {"dose": "500mg", "frequency": "twice daily"},
+            "Nifedipine": {"dose": "10mg", "frequency": "thrice daily"}
+        }
+},
+
+    "patient_3": {
+        "name": "Kevin Thomas",
+        "age": 35,
+        "doctor_name": "Dr. Susan",
+        "current_diagnosis": "Asthma",
+        "medical_condition": ["Hypertension", "Obesity"],
+        "medications": {
+            "Fluticasone": {"dose": "250mcg", "frequency": "once daily"},
+            "Enalapril": {"dose": "10mg", "frequency": "once daily"}
+        }
+    }
+}
