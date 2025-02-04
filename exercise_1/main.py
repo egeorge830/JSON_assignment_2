@@ -1,37 +1,30 @@
+import json
+from pathlib import Path
+from patient_data import hospital_data
+
 def patient_and_doc(hospital_data):
     print("Patient Names and Their Doctors:")
-for key, values in hospital_data.items():
-    print(f"{values['name']} is treated by {values['doctor_name']}")
-
-print("\n")
+    for key, values in hospital_data.items():
+        print(f"{values['name']} is treated by {values['doctor_name']}")
+    print("\n")
 
 def medications(hospital_data, patient_name):
     print(f"Medications prescribed to {patient_name}:")
-for key, values in hospital_data.items():
-    if values["name"] == patient_name:
-        for k, v in values["medications"].items():
-            print(f" {k}: {v["dose"]} {v["frequency"]}")
-        return
-
-medications(hospital_data, "Jenny Joseph")
-
-print("\n")
+    for key, values in hospital_data.items():
+        if values["name"] == patient_name:
+            for k, v in values["medications"].items():
+                print(f" {k}: {v['dose']} {v['frequency']}")
+            return
+    print("\n")
 
 def unique_con(hospital_data):
-
     unique_conditions = set()
-
     print("All unique conditions across all patients:")
-
     for x in hospital_data.values():
         for y in x["medical_condition"]:
             unique_conditions.add(y)
-
     for y in unique_conditions:
         print(y)
-
-unique_con(hospital_data)
-
     print("\n")
 
 def doctor_assigned(hospital_data, patient_name):
@@ -39,24 +32,29 @@ def doctor_assigned(hospital_data, patient_name):
         if j["name"] == patient_name:
             print(f'{j["doctor_name"]} is the doctor treating {j["name"]}')
             return
-doctor_assigned(hospital_data, "Peter George")
+    print("\n")
 
 def patient_details(hospital_data, patient_name):
     for p in hospital_data.values():
         if p["name"] == patient_name:
             print(f"Details of {patient_name}: ")
-            print(f"Name: {p["name"]}")
-            print(f"Age: {p["age"]}")
-            print(f"Doctor Name: {p["doctor_name"]}")
-            print(f"Current Diagnosis: {p["current_diagnosis"]}")
+            print(f"Name: {p['name']}")
+            print(f"Age: {p['age']}")
+            print(f"Doctor Name: {p['doctor_name']}")
+            print(f"Current Diagnosis: {p['current_diagnosis']}")
             print(f"Medical Conditions:")
             for con in p["medical_condition"]:
                 print(f"{con}")
             print("Medications:")
             for med, d in p["medications"].items():
-                print(f" {med}: {d["dose"]} {d["frequency"]}")
-                return
-patient_details(hospital_data, "Kevin Thomas")
+                print(f" {med}: {d['dose']} {d['frequency']}")
+            return
+
+data_dir = Path.cwd() / "data"
+file_path = data_dir / "patient_records.json"
+
+with open(file_path, 'w', encoding='utf-8') as file:
+    json.dump(hospital_data, file, indent=4)
 
 
 
