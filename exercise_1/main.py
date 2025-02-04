@@ -41,4 +41,23 @@ def doctor_assigned(hospital_data, patient_name):
             return
 doctor_assigned(hospital_data, "Peter George")
 
+def patient_details(hospital_data, patient_name):
+    for p in hospital_data.values():
+        if p["name"] == patient_name:
+            print(f"Details of {patient_name}: ")
+            print(f"Name: {p["name"]}")
+            print(f"Age: {p["age"]}")
+            print(f"Doctor Name: {p["doctor_name"]}")
+            print(f"Current Diagnosis: {p["current_diagnosis"]}")
+            print(f"Medical Conditions:")
+            for con in p["medical_condition"]:
+                print(f"{con}")
+            print("Medications:")
+            for med, d in p["medications"].items():
+                print(f" {med}: {d["dose"]} {d["frequency"]}")
+                return
+patient_details(hospital_data, "Kevin Thomas")
+
+
+
 
